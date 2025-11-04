@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1504151932400-72d4384f04b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=1469&q=80);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.card-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 33%;
+    transition: transform 1s ease;
+}
+
+.card-container.flip {
+    transform: translate(-50%, -50%) rotateY(-180deg);
+}
+
+.card-container.front {
+    z-index: 10;
+    backface-visibility: hidden;
+}
+
+.card-container.back {
+    z-index: 5;
+    backface-visibility: hidden;
+}
+
+.card {
+    border-radius: 16px;
+    box-shadow: 0 0 20px #000000bf;
+    overflow: hidden;
+}
+
+.card.front, .card.back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.card.front {
+    background-color: #4f4c47;
+}
+
+.card.back {
+    background-color: #4f4c47bf;
+    transform: rotateY(180deg);
+    backdrop-filter: blur(5.5px);
+}
+
+h1 {
+    color: #7ac3bc;
+    line-height: 3;
+    font-size: xx-large;
+    font-family: cursive;
+}
+
+h3 {
+    color: #e6e7a3;
+    line-height: 2;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    width: 100%;
+    padding-left: 10%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p span {
+    display: block;
+    line-height: 1.5;
+    font-size: xx-large;
+    text-align: justify;
+}
+
+h6 {
+    position: absolute;
+    bottom: 5.5%;
+    right: 5.5%;
+    font-size: x-large;
+    color: #ff6961;
+}
+
+h6.heart {
+    color: #ff4033;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 40%, 80%, 100% {
+        transform: scale(2);
+    }
+
+    20%, 60% {
+        transform: scale(3);
+    }
+}
+

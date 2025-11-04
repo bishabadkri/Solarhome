@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Information Cards — Explore Space</title>
+
+  <!-- Keep external stylesheet if you have one -->
+  <link rel="stylesheet" href="cards.css">
+
+  <!-- Inline fallback styles & small animations so the page is engaging even if cards.css is missing -->
+  <style>
+    :root{
+      --bg:#071028; --card:#0f1724; --accent:#6EE7B7; --muted:#9aa5b1;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: "Poppins", sans-serif; background:linear-gradient(180deg,#001021 0%, #04132a 100%);
+      color:#e6eef6; -webkit-font-smoothing:antialiased;
+    }
+    .nav{display:flex;align-items:center;gap:.75rem;padding:1rem 2rem;background:rgba(255,255,255,0.03)}
+    .nav img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+    .nav .a1{color:var(--accent);text-decoration:none;font-weight:600;margin-left:6px}
+    header{padding:2rem;text-align:center}
+    .title{font-size:2.2rem;font-weight:700;letter-spacing:.5px}
+    .subtitle{color:var(--muted);margin-top:.25rem}
+    .hero{display:flex;align-items:center;justify-content:center;gap:2rem;padding:1rem;flex-wrap:wrap}
+    .astro{width:160px;transform:translateY(0);transition:transform .6s ease;will-change:transform}
+    .astro:hover{transform:translateY(-8px)}
+    .word{display:block;font-weight:700;color:var(--accent);margin-bottom:.5rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;padding:1.5rem 2rem}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:1rem;box-shadow:0 6px 18px rgba(2,6,23,.6);transition:transform .25s ease,box-shadow .25s ease;overflow:hidden}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(2,6,23,.7)}
+    .card h4{margin:0 0 .25rem 0;color:#fff}
+    .card p{color:var(--muted);margin:0 0 .75rem 0}
+    .card .img{width:72px;height:72px;object-fit:contain;display:block;margin-bottom:.5rem}
+    .fact{display:inline-block;margin-top:.5rem;color:var(--accent);font-weight:700}
+    ul{color:var(--muted);padding-left:1.1rem;margin:.5rem 0 0 0}
+    .controls{display:flex;gap:.5rem;justify-content:center;padding:0 2rem 1rem}
+    .search{padding:.5rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;min-width:200px}
+    .btn{background:var(--accent);border:none;padding:.5rem .75rem;border-radius:8px;color:#012;cursor:pointer;font-weight:700}
+    /* small responsive */
+    @media (max-width:520px){.hero{flex-direction:column-reverse}.astro{width:120px}}
+    /* focus styles */
+    a:focus, button:focus, input:focus{outline:3px solid rgba(110,231,183,.18);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <img src="https://i.ibb.co/fG28s9vg/yourimage.jpg" alt="Brand">
+    <a class="a1" href="solar model.html">Home</a>
+  </nav>
+
+  <header>
+    <div class="title">Exploring The Space</div>
+    <div class="subtitle">Quick facts and friendly guides about our Solar System</div>
+  </header>
+
+  <section class="hero" aria-hidden="false">
+    <img class="astro" src="https://i.ibb.co/CKGSnrHd/8d164a8564bb400f5a605410bb7cae76-removebg-preview.png" alt="Astronaut illustration">
+    <div>
+      <span class="word">Explore! Explore! Explore!!</span>
+      <div class="controls" role="search" aria-label="Filter cards">
+        <input id="filter" class="search" placeholder="Filter cards (e.g., Sun, Earth, Asteroid)" aria-label="Filter cards">
+        <button id="reset" class="btn" type="button">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="cards" id="cards" aria-live="polite">
+    <!-- Card: SUN -->
+    <article class="card" data-keywords="sun star solar">
+      <img class="img" src="https://i.ibb.co/23kymhTd/C5188db6689295b7129a80f83c6b3c2b-removebg-preview.png" alt="Sun">
+      <h4>SUN</h4>
+      <p>The Sun is a massive ball of hot gases and the center of our solar system.</p>
+      <span class="fact">Key Facts</span>
+      <ul>
+        <li>AGE: About 4.6 billion years</li>
+        <li>Temperature: ~5,500°C on the surface</li>
+        <li><strong>Fun Fact:</strong> The Sun contains 99.8% of the solar system’s total mass</li>
+      </ul>
+    </article>
+
+    <!-- Card: EARTH -->
+    <article class="card" data-keywords="earth blue planet life">
+      <img class="img" src="https://i.ibb.co/pBm7pB9v/58084227945dcb2672841631e2187d26-removebg-preview.png" alt="Earth">
+      <h4>EARTH</h4>
+      <p>The only blue planet we know that supports life.</p>
+      <span class="fact">Key Facts</span>
+      <ul>
+        <li>AGE: About 4.5 billion years</li>
+        <li>Distance from Sun: ~150 million km</li>
+        <li>Moon: 1 natural satellite</li>
+        <li><strong>Fun Fact:</strong> 71% of Earth’s surface is covered by water</li>
+      </ul>
+    </article>
+
+    <!-- Card: DWARF PLANET -->
+    <article class="card" data-keywords="dwarf pluto ceres">
+      <img class="img" src="https://i.ibb.co/C53HqP27/057f9afad62b6b4b4988fa5ca003fe87-removebg-preview.png" alt="Dwarf planet">
+      <h4>Dwarf Planet</h4>
+      <p>Dwarf planets orbit the Sun but are not dominant in their orbit.</p>
+      <span class="fact">Key Facts</span>
+      <ul>
+        <li>They are round but not dominant in their orbit</li>
+        <li>Location: Mostly in the Kuiper Belt</li>
+        <li><strong>Fun Fact:</strong> Pluto was reclassified as a dwarf planet in 2006</li>
+      </ul>
+    </article>
+
+    <!-- Card: ASTEROID -->
+    <article class="card" data-keywords="asteroid belt rock">
+      <img class="img" id="asteroid" src="https://i.ibb.co/hRVhc2KG/5d0cc9bb2543c0f5d505c83e75d5a0bb-removebg-preview.png" alt="Asteroid">
+      <h4>ASTEROID</h4>
+      <p>Asteroids are rocky objects left over from the early formation of our solar system.</p>
+      <span class="fact">Key Facts</span>
+      <ul>
+        <li>Main Location: Asteroid Belt</li>
+        <li>Size: From a few meters to hundreds of kilometers</li>
+        <li>Largest Asteroid: Ceres (also a dwarf planet)</li>
+        <li><strong>Fun Fact:</strong> Some asteroids may contain valuable metals</li>
+      </ul>
+    </article>
+
+    <!-- Card: KUIPER BELT -->
+    <article class="card" data-keywords="kuiper belt trans-neptunian">
+      <h4>KUIPER BELT</h4>
+      <p>The Kuiper Belt is a vast ring of icy bodies beyond Neptune.</p>
+      <span class="fact">Key Facts</span>
+      <ul>
+        <li><strong>Location:</strong> Starts about 30 AU from the Sun</li>
+        <li><strong>Shape:</strong> Donut-shaped region</li>
+        <li><strong>Contains:</strong> Ice, rock, and frozen gases</li>
+        <li><strong>Fun Fact:</strong> It's like a "second asteroid belt," but much farther out</li>
+      </ul>
+    </article>
+
+    <!-- Card: SPACE PROBES -->
+    <article class="card" data-keywords="probe voyager new horizons juno">
+      <h4>SPACE PROBES</h4>
+      <p>Space probes are robotic spacecraft that explore space beyond Earth’s orbit.</p>
+      <span class="fact">Key Facts</span>
+      <ul>
+        <li><strong>Famous Probes:</strong> Voyager 1 & 2, New Horizons, Juno</li>
+        <li><strong>No humans onboard:</strong> fully robotic</li>
+        <li><strong>Power:</strong> Usually solar or nuclear</li>
+        <li><strong>Fun Fact:</strong> Voyager 1 is the farthest human-made object in space</li>
+      </ul>
+    </article>
+
+    <!-- Card: SATELLITE -->
+    <article class="card" data-keywords="satellite artificial natural communication">
+      <img class="img" id="satellite" src="https://i.ibb.co/JjS647Y2/F0554297514ca50810f6fb053929a96f-2-removebg-preview.png" alt="Satellite">
+      <h4>SATELLITE</h4>
+      <p>A satellite is any object that orbits a planet. Some are natural; others are man-made for communication and observation.</p>
+      <span class="fact">Key Facts</span>
+      <ul>
+        <li><strong>Uses:</strong> Weather, GPS, communication, imaging</li>
+        <li><strong>Fun Fact:</strong> Thousands of artificial satellites orbit Earth today</li>
+      </ul>
+    </article>
+  </main>
+
+  <script>
+    // Simple client-side filter so the page feels interactive
+    (function(){
+      const input = document.getElementById('filter');
+      const reset = document.getElementById('reset');
+      const cards = Array.from(document.querySelectorAll('.card'));
+
+      function filter(q){
+        q = (q||'').trim().toLowerCase();
+        cards.forEach(card=>{
+          const keys = (card.dataset.keywords || '') + ' ' + (card.textContent || '');
+          card.style.display = keys.toLowerCase().includes(q) ? '' : 'none';
+        });
+      }
+      input.addEventListener('input', e=>filter(e.target.value));
+      reset.addEventListener('click', ()=>{ input.value=''; filter(''); input.focus(); });
+      // small accessibility: press "/" to focus search
+      window.addEventListener('keydown', e=>{
+        if(e.key === '/' && document.activeElement !== input){ e.preventDefault(); input.focus(); }
+      });
+    })();
+  </script>
+</body>
+</html>
